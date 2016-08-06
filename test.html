@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="description" content="Code Beautifier by arsho">
+    <meta name="keywords" content="Code Beautifier, arsho, cb, highlight">
+    <meta name="author" content="Ahmedur Rahman Shovon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="https://upload.wikimedia.org/wikipedia/commons/7/71/Page_code.png" type="image/x-icon">
+    
+    <title>Code Beautifier</title>
+
+    <!-- Core CSS - Include with every page -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+	<!-- Highlight -->
+	<link rel="stylesheet" title="androidstudio" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.5.0/styles/androidstudio.min.css">
+	<link rel="stylesheet" title="default" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.5.0/styles/default.min.css">
+	<link rel="stylesheet" title="dracula" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.5.0/styles/dracula.min.css">
+	<link rel="stylesheet" title="github" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.5.0/styles/github.min.css">
+	<link rel="stylesheet" title="foundation" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.5.0/styles/foundation.min.css">
+	<link rel="stylesheet" title="idea" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.5.0/styles/idea.min.css">
+	<link rel="stylesheet" title="tomorrow" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.5.0/styles/tomorrow.min.css">
+	<link rel="stylesheet" title="googlecode" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.5.0/styles/googlecode.min.css">
+	<link rel="stylesheet" title="github-gist" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.5.0/styles/github-gist.min.css">
+	<link rel="stylesheet" title="solarized-light" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.5.0/styles/solarized-light.min.css">
+
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.5.0/highlight.min.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+        <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">	
+	<style>
+        body {
+          padding-top: 70px;
+          font-family: 'Ubuntu', sans-serif !important;
+          background: #e8e8e8;
+          min-height: 1000px;
+        }
+        .main{
+	  background: rgba(255, 255, 255, 0.85);
+	  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);	  
+        }
+        .panel-default .panel-heading:hover
+        {
+          cursor: pointer;
+          color: #333;
+          background: #ccc;
+        }        
+	</style>
+</head>
+
+<body>
+
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="">Code Beautifier</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+              <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user fa-fw"></i> <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="http://github.com/arsho"><i class="fa fa-github fa-fw"></i> Created By Shovon</a></li>
+                <li><a href="https://www.facebook.com/ars.shovon"><i class="fa fa-facebook fa-fw"></i> Connect In Facebook</a></li>
+              </ul>
+            </li>        
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+    <div id="wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-primary main">
+                        <div class="panel-heading">
+                            <div class="btn-group pull-right">
+			    	<select id="theme_select" class="form-control input-sm">
+					<option value="default">Default</option>				
+					<option value="github">Github</option>				
+					<option value="github-gist">Github Gist</option>				
+					<option selected="selected" value="androidstudio">Android Studio</option>				
+					<option value="googlecode">Google Code</option>				
+					<option value="idea">Idea</option>				
+					<option value="dracula">Dracula</option>				
+					<option value="tomorrow">Tomorrow</option>				
+					<option value="foundation">Foundation</option>				
+					<option value="solarized-light">solarized-light</option>				
+				</select>
+			    </div>
+			    <h3 class="panel-title" style="padding-top: 7.5px;">
+                            Beautified Code <small>(Click on the title to toggle collapse mode)</small>
+                            </h3>
+			    <div class="clearfix"></div>
+                        </div>
+                        <!-- .panel-heading -->
+                        <div class="panel-body">
+                            <div class="panel-group" id="accordion">
+
+<!-- .panel panel-default starts -->
+<div data-toggle="tooltip" data-placement="top" title="Click to toggle factorial.c" class="panel panel-default">
+<!-- .panel-heading -->
+<div data-toggle="collapse" href="#div_0" class="panel-heading">
+<h3 class="panel-title">factorial.c</h3>
+</div>
+<!-- ./panel-heading --><!-- .panel-collapse collapse -->
+<div id="div_0" class="panel-collapse collapse">
+<!-- .panel-body -->
+<div class="panel-body">
+<pre><code>
+int factorial(int n) {
+    int result = 1;
+    for (int i = 1; i &lt;= n; ++i)
+        result *= i;
+    return result;
+}
+
+</code></pre>
+</div>
+<!-- ./panel-body -->
+</div>
+<!-- ./panel-collapse collapse -->
+</div>
+<!-- ./panel panel-default ends -->
+<!-- .panel panel-default starts -->
+<div data-toggle="tooltip" data-placement="top" title="Click to toggle factorial.cpp" class="panel panel-default">
+<!-- .panel-heading -->
+<div data-toggle="collapse" href="#div_1" class="panel-heading">
+<h3 class="panel-title">factorial.cpp</h3>
+</div>
+<!-- ./panel-heading --><!-- .panel-collapse collapse -->
+<div id="div_1" class="panel-collapse collapse">
+<!-- .panel-body -->
+<div class="panel-body">
+<pre><code>
+long long int Factorial(long long int m_nValue)
+   {
+       long long int result=m_nValue;
+       long long int result_next;
+       long long int pc = m_nValue;
+       do
+       {
+           result_next = result*(pc-1);
+           result = result_next;
+           pc--;
+       }while(pc&gt;2);
+       m_nValue = result;
+       return m_nValue;
+   }
+
+</code></pre>
+</div>
+<!-- ./panel-body -->
+</div>
+<!-- ./panel-collapse collapse -->
+</div>
+<!-- ./panel panel-default ends -->
+<!-- .panel panel-default starts -->
+<div data-toggle="tooltip" data-placement="top" title="Click to toggle factorial.cs" class="panel panel-default">
+<!-- .panel-heading -->
+<div data-toggle="collapse" href="#div_2" class="panel-heading">
+<h3 class="panel-title">factorial.cs</h3>
+</div>
+<!-- ./panel-heading --><!-- .panel-collapse collapse -->
+<div id="div_2" class="panel-collapse collapse">
+<!-- .panel-body -->
+<div class="panel-body">
+<pre><code>
+using System;
+ 
+class Program
+{
+    static int Factorial(int number)
+    {
+        int accumulator = 1;
+        for (int factor = 1; factor &lt;= number; factor++)
+        {
+            accumulator *= factor;
+        }
+        return accumulator;
+    }
+ 
+    static void Main()
+    {
+        Console.WriteLine(Factorial(10));
+    }
+}
+
+</code></pre>
+</div>
+<!-- ./panel-body -->
+</div>
+<!-- ./panel-collapse collapse -->
+</div>
+<!-- ./panel panel-default ends -->
+<!-- .panel panel-default starts -->
+<div data-toggle="tooltip" data-placement="top" title="Click to toggle factorial.java" class="panel panel-default">
+<!-- .panel-heading -->
+<div data-toggle="collapse" href="#div_3" class="panel-heading">
+<h3 class="panel-title">factorial.java</h3>
+</div>
+<!-- ./panel-heading --><!-- .panel-collapse collapse -->
+<div id="div_3" class="panel-collapse collapse">
+<!-- .panel-body -->
+<div class="panel-body">
+<pre><code>
+public static long fact(final int n) {
+    if (n &lt; 0) {
+        System.err.println(&quot;No negative numbers&quot;);
+        return 0;
+    }
+    long ans = 1;
+    for (int i = 1; i &lt;= n; i++) {
+        ans *= i;
+    }
+    return ans;
+}
+
+</code></pre>
+</div>
+<!-- ./panel-body -->
+</div>
+<!-- ./panel-collapse collapse -->
+</div>
+<!-- ./panel panel-default ends -->
+<!-- .panel panel-default starts -->
+<div data-toggle="tooltip" data-placement="top" title="Click to toggle factorial.js" class="panel panel-default">
+<!-- .panel-heading -->
+<div data-toggle="collapse" href="#div_4" class="panel-heading">
+<h3 class="panel-title">factorial.js</h3>
+</div>
+<!-- ./panel-heading --><!-- .panel-collapse collapse -->
+<div id="div_4" class="panel-collapse collapse">
+<!-- .panel-body -->
+<div class="panel-body">
+<pre><code>
+function factorial(n) {
+  //check our edge case
+  if (n &lt; 0) { throw &quot;Number must be non-negative&quot;; }
+ 
+  var sum = 1;
+  //we skip zero and one since both are 1 and are identity
+  while (n &gt; 1) {
+    sum *= n;
+    n -= 1;
+  }
+  return sum;
+}
+
+</code></pre>
+</div>
+<!-- ./panel-body -->
+</div>
+<!-- ./panel-collapse collapse -->
+</div>
+<!-- ./panel panel-default ends -->
+<!-- .panel panel-default starts -->
+<div data-toggle="tooltip" data-placement="top" title="Click to toggle factorial.py" class="panel panel-default">
+<!-- .panel-heading -->
+<div data-toggle="collapse" href="#div_5" class="panel-heading">
+<h3 class="panel-title">factorial.py</h3>
+</div>
+<!-- ./panel-heading --><!-- .panel-collapse collapse -->
+<div id="div_5" class="panel-collapse collapse">
+<!-- .panel-body -->
+<div class="panel-body">
+<pre><code>
+def factorial(n):
+    result = 1
+    for i in range(1, n+1):
+        result *= i
+    return result
+
+</code></pre>
+</div>
+<!-- ./panel-body -->
+</div>
+<!-- ./panel-collapse collapse -->
+</div>
+<!-- ./panel panel-default ends -->
+                    </div>
+                    <!-- /.accordian -->
+                    </div>
+                    <!-- /.panelbody -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- Core Scripts - Include with every page -->
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+    <!-- Page-Level Plugin Scripts - Panels and Wells -->
+
+    <script>
+    // tooltip demo
+    $('#accordion').tooltip({
+        selector: "[data-toggle=tooltip]",
+        container: "body"
+    })
+
+    // popover demo
+    $("[data-toggle=popover]")
+        .popover()
+    function selectStyle(e)
+    {
+	$("link[title]").each(function(t,i)
+		{i.disabled=i.title!=e}
+	)
+    }
+    $("#theme_select").on("change",function(){
+	$current_val = $(this).val();
+	console.log($current_val);
+	selectStyle($current_val);
+    })
+
+    </script>
+
+</body>
+
+</html>
