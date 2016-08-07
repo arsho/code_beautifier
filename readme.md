@@ -5,6 +5,11 @@ Code Beautifier beautifies code into single HTML file which can be shared easily
 <b>Code Beautifier</b>
 ![alt Code Beautifier](https://raw.githubusercontent.com/arsho/code_beautifier/master/code_beautifier.png)
 <hr>
+<b>Code Beautifier GUI</b>
+![alt Code Beautifier](https://raw.githubusercontent.com/arsho/code_beautifier/master/code_beautifier_gui.png)
+<hr>
+![alt Code Beautifier](https://raw.githubusercontent.com/arsho/code_beautifier/master/code_beautifier_save.png)
+<hr>
 <h2>
 <a id="feature" class="anchor" href="#feature" aria-hidden="true"><span class="octicon octicon-link"></span></a>Feature:
 </h2>
@@ -17,14 +22,10 @@ Code Beautifier beautifies code into single HTML file which can be shared easily
 <a id="how-to-use" class="anchor" href="#how-to-use" aria-hidden="true"><span class="octicon octicon-link"></span></a>How to use:
 </h2>
 <ol>
-<li>Keep your code inside <b>code</b> folder.</li>
-<li>Run cb.py.</li>
+<li>Run cb.py using Python3.</li>
+<li>Select the Folder which contains code using <b>Browse</b> button.</li>
+<li>Save the beautified code using <b>Save Beautified Code<b/> button.</li>
 </ol>
-<h3>Project Structure</h3>
-├── code<br>
-│   ├── code1.py<br>
-│   └── code2.cpp (etc.)<br>
-├── cb.py<br>
 
 <h3>Enjoy!</h3>
 <p>
